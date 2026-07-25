@@ -1,8 +1,8 @@
-# Asistente de Requerimientos — Banco AIner
+# Nera — Asistente de Requerimientos (Banco AInerdd)
 
-Prototipo de un asistente conversacional (texto + voz→texto) que ayuda a usuarios de
-negocio sin perfil técnico a aterrizar y validar requerimientos de soluciones de IA,
-contrastándolos contra los lineamientos del banco.
+**Nera** es un prototipo de asistente conversacional (texto + voz→texto) que ayuda a
+usuarios de negocio sin perfil técnico a aterrizar y validar requerimientos de soluciones
+de IA, contrastándolos contra los lineamientos del banco.
 
 Monoagente sobre **Flask**, con parametrización por `config`, orquestador central y
 servicios desacoplados (LLM, Whisper, historial). Frontend embebido.
