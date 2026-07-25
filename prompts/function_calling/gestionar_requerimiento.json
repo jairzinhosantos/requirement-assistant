@@ -1,0 +1,64 @@
+{
+  "name": "gestionar_requerimiento",
+  "description": "Estructura CADA turno del asistente de requerimientos. Debe llamarse siempre. Contiene el mensaje conversacional para el usuario y los flags que controlan el loop de elicitacion.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "mensaje_al_usuario": {
+        "type": "string",
+        "description": "Respuesta conversacional para el usuario de negocio. Calida, breve y sin tecnicismos."
+      },
+      "resumen_requerimiento": {
+        "type": "string",
+        "description": "Resumen del requerimiento entendido hasta el momento. Vacio si aun no hay suficiente."
+      },
+      "unidad_negocio": {
+        "type": "string",
+        "description": "Unidad de negocio del banco que solicita, si ya se conoce."
+      },
+      "caso_uso": {
+        "type": "string",
+        "enum": [
+          "asistente_virtual",
+          "clasificador_correos",
+          "asistente_voz_whatsapp_teams",
+          "no_identificado"
+        ],
+        "description": "Caso de uso permitido que mejor encaja con lo que pide el usuario."
+      },
+      "dentro_de_scope": {
+        "type": "boolean",
+        "description": "true si el requerimiento cae dentro de un caso de uso permitido por los lineamientos."
+      },
+      "fuera_de_scope": {
+        "type": "boolean",
+        "description": "true si el requerimiento exige algo NO permitido hoy (por ejemplo, datos transaccionales por API)."
+      },
+      "info_faltante": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Lista de datos que todavia faltan para aterrizar el requerimiento."
+      },
+      "factible": {
+        "type": "boolean",
+        "description": "true si es tecnicamente factible segun los lineamientos."
+      },
+      "viable": {
+        "type": "boolean",
+        "description": "true si es viable para el negocio (aporta valor y esta dentro de politicas)."
+      },
+      "requerimiento_completo": {
+        "type": "boolean",
+        "description": "true SOLO cuando ya no falta informacion y el requerimiento esta aterrizado y validado. Este flag rompe el loop."
+      }
+    },
+    "required": [
+      "mensaje_al_usuario",
+      "caso_uso",
+      "dentro_de_scope",
+      "fuera_de_scope",
+      "info_faltante",
+      "requerimiento_completo"
+    ]
+  }
+}

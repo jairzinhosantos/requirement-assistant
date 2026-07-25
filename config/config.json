@@ -1,0 +1,31 @@
+{
+  "app": {
+    "host": "127.0.0.1",
+    "port": 5000,
+    "debug": true
+  },
+  "llm": {
+    "provider": "openai",
+    "model": "gpt-4o",
+    "deployment": "gpt-4o",
+    "api_version": "2024-08-01-preview",
+    "temperature": 0.3,
+    "max_tokens": 1200
+  },
+  "whisper": {
+    "model": "whisper-1",
+    "language": "es"
+  },
+  "prompts": {
+    "system_prompt_path": "prompts/system_prompt.md",
+    "function_calling_path": "prompts/function_calling/gestionar_requerimiento.json"
+  },
+  "data": {
+    "compliance_dir": "data/compliance",
+    "knowledge_dir": "data/knowledge",
+    "history_dir": "data/history"
+  },
+  "banco": {
+    "nombre": "Banco AInerd"
+  }
+}
